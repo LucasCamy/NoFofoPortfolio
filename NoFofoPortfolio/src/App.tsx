@@ -102,19 +102,19 @@ function App() {
     </header>
     <main id="conteudo">
       <section className="hero section-wrap" aria-labelledby="hero-heading">
-        <div className="hero-copy"><p className="eyebrow"><span className="tiny-star" aria-hidden="true">✳</span> PEQUENOS NÓS. GRANDES AFETOS.</p><h1 id="hero-heading">Feito de fios.<br />Cheio de <em>afeto.</em></h1><p className="hero-description">Crochê e amigurumis que transformam um simples fio em algo para guardar pertinho.</p><a className="button primary" href="#criacao">Encontre seu próximo carinho <span aria-hidden="true">↗</span></a><div className="hero-footnote"><span className="small-line" />Feito à mão, no tempo do cuidado.</div></div>
+        <div className="hero-copy"><p className="eyebrow"><span className="tiny-star" aria-hidden="true">✳</span> PEQUENOS NÓS. GRANDES AFETOS.</p><h1 id="hero-heading">Feito de fios.<br />Cheio de <em>afeto.</em></h1><p className="hero-description">Crochê e amigurumis feitos à mão em Campo Grande, MS. Peças para presentear, decorar e guardar pertinho.</p><a className="button primary" href="#criacao">Encontre seu próximo carinho <span aria-hidden="true">↗</span></a><div className="hero-footnote"><span className="small-line" />Feito à mão, no tempo do cuidado.</div></div>
         <div className="hero-art"><div className="orbit orbit-one" aria-hidden="true" /><div className="orbit orbit-two" aria-hidden="true" /><span className="art-caption"></span><div className="logo-disc"><img src={assetUrl('logo-no-fofo.jpeg')} alt="Nó Fofo: um coração feito de fios" width="1254" height="1254" fetchPriority="high" /></div><span className="art-note">um fio de carinho<br /><em>feito só para você</em></span><span className="art-star" aria-hidden="true">✳</span><span className="art-index">CADA PONTO, UMA HISTÓRIA<br />FEITO À MÃO, COM CALMA</span></div>
       </section>
       <div className="ribbon" aria-hidden="true"><span>Um ponto de carinho</span><b>✳</b><span>Um jeito de abraçar</span><b>✳</b><span>Um presente com história</span><b>✳</b><span>Um ponto de carinho</span></div>
       <section id="criacao" className="section-wrap portfolio" aria-labelledby="portfolio-heading">
-        <div data-reveal><p className="eyebrow">NOSSAS CRIAÇÕES</p><div className="section-heading"><h2 id="portfolio-heading">Afeto em <em>cada ponto.</em></h2><p>Pequenas criações para grandes significados.<br />Explore as possibilidades do feito à mão.</p></div></div>
+        <div data-reveal><p className="eyebrow">NOSSAS CRIAÇÕES</p><div className="section-heading"><h2 id="portfolio-heading">Afeto em <em>cada ponto.</em></h2><p>Amigurumis, acessórios e decoração em crochê.<br />Conheça as peças e inspire sua encomenda.</p></div></div>
         <div className="catalog-toolbar"><div className="filters" role="group" aria-label="Filtrar criações por categoria">{categories.map(item => <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div><span className="results-count" role="status">{visibleCreations.length} {visibleCreations.length === 1 ? 'criação' : 'criações'}</span></div>
         <p className="demo-note">Conheça nossas peças feitas à mão. Abra cada criação para ver os detalhes e se inspirar na sua encomenda.</p>
         <div className="creation-grid" key={category}>{visibleCreations.map((creation, index) => <article className="creation-card" key={creation.id} style={{ '--order': index } as React.CSSProperties}><button type="button" className="creation-button" aria-label={`Ver detalhes de ${creation.name}`} onClick={() => setModal({ type: 'creation', creation })}><CreationVisual creation={creation} /><div className="creation-meta"><div><p className="creation-category">{creation.category}</p><h3>{creation.name}</h3></div><span className="circle-arrow" aria-hidden="true">↗</span></div><p className="creation-description">{creation.description}</p><span className="card-details">Ver detalhes <span aria-hidden="true">↗</span></span></button></article>)}</div>
         {visibleCreations.length === 0 && <p className="empty-state">Novos pontos estão a caminho. <button onClick={() => setCategory('Todas')}>Ver todas as criações</button></p>}
         <div className="catalog-footer"><span>Imaginou algo diferente?</span><button type="button" className="text-link button contact-cta-main" rel='noopener noreferreronClick' onClick={() => openContact()}>Vamos criar do seu jeito <span aria-hidden="true">↗</span></button></div>
       </section>
-      <section id="encomenda" className="order-section" aria-labelledby="order-heading"><div className="section-wrap order-inner"><div data-reveal><p className="eyebrow">DO PRIMEIRO OI AO ÚLTIMO PONTO</p><div className="section-heading"><h2 id="order-heading">Sua ideia.<br /><em>Nossos pontos.</em></h2><p>Uma criação especial começa com uma conversa. Veja o caminho para tirar a sua ideia do papel.</p></div></div><ol className="steps">{[
+      <section id="encomenda" className="order-section" aria-labelledby="order-heading"><div className="section-wrap order-inner"><div data-reveal><p className="eyebrow">DO PRIMEIRO OI AO ÚLTIMO PONTO</p><div className="section-heading"><h2 id="order-heading">Sua ideia.<br /><em>Nossos pontos.</em></h2><p>Encomende seu crochê personalizado em Campo Grande, MS. Converse sobre a peça, as cores, o prazo e a forma de entrega pelo WhatsApp.</p></div></div><ol className="steps">{[
         ['A gente conversa', 'Conte sua ideia, para quem é a peça e o que a torna especial. Pode trazer referências e suas cores favoritas.'],
         ['Cada detalhe combina', 'Definimos possibilidades, materiais, valor, prazo e entrega antes de confirmar a encomenda.'],
         ['O carinho ganha forma', 'Com os detalhes aprovados, começa a criação. É o tempo de transformar os fios em algo seu.'],
@@ -127,7 +127,7 @@ function App() {
             <br />
             <em>criar juntos?</em>
           </h2>
-          <p>Para presentear alguém. Para deixar a casa mais sua.<br />Ou simplesmente para você.</p>
+          <p>Crochê feito à mão em Campo Grande, Mato Grosso do Sul.<br />Para presentear alguém ou simplesmente para você.</p>
           {whatsapp ?
             <a className="button contact-cta" href={whatsappUrl} target="_blank" rel="noopener noreferrer">
               Encomendar pelo WhatsApp

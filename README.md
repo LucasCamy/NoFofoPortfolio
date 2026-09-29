@@ -40,3 +40,7 @@ The workflow reads the Pages base path and supplies `PAGES_BASE_PATH` to Vite. T
 Edit `NoFofoPortfolio/src/content.ts` to update WhatsApp, catalog descriptions and product order. Add photos to `NoFofoPortfolio/public/pecas/`, use paths such as `/pecas/example.jpg`, and supply descriptive `imageAlt` text. Remote HTTPS image URLs are also supported. Set `provisional: false` only after replacing demonstration content with real product information.
 
 The app source is tracked directly in this repository, not as a submodule. Dependencies, generated builds and local QA files are excluded from Git.
+
+## Search visibility
+
+The canonical website is https://nofofo.cloudlane.com.br/. Builds include rendered page content, local metadata for Campo Grande, brand structured data and crawler files. Run `npm run test:seo` after building. See [SEO deployment and Google Search Console steps](SEO-DEPLOYMENT.md) for the Docker server handoff.
