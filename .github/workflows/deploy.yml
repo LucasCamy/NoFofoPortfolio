@@ -39,3 +39,26 @@ jobs:
             ghcr.io/lucascamy/nofofo-portfolio:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  deploy-to-k8s:
+    name: Deploy to Kubernetes via Tailscale
+    needs:
+      - build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conectar à rede Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+
+      - name: Configurar Kubeconfig
+        uses: azure/k8s-set-context@v4
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+
+      - name: Atualizar Deployment no Kubernetes
+        run: |
+          REPO_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          kubectl set image deployment/nofofo-portfolio -n landingpages web=ghcr.io/${REPO_OWNER}/nofofo-portfolio:${{ github.sha }}
+          kubectl rollout status deployment/nofofo-portfolio -n landingpages --timeout=120s
